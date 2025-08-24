@@ -1,0 +1,14 @@
+# Never change line endings or whitespace in generated/static files
+public/** -text
+static/** -text
+assets/** -text
+resources/** -text
+
+# Belt-and-suspenders for typical web assets
+*.css  -text
+*.js   -text
+*.html -text
+*.svg  -text
+*.json -text
+*.xml  -text
+*.txt  -text
