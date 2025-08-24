@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://jumpbrain.github.io/page/sitemap.xml
