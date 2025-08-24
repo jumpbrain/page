@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jumpbrain.github.io/page/post/first/</loc>
-    <lastmod>2025-08-24T15:46:01+02:00</lastmod>
-  </url><url>
     <loc>https://jumpbrain.github.io/page/</loc>
-    <lastmod>2025-08-24T15:46:01+02:00</lastmod>
+    <lastmod>2025-08-24T16:42:49+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -24,6 +21,12 @@
                 />
   </url><url>
     <loc>https://jumpbrain.github.io/page/post/</loc>
+    <lastmod>2025-08-24T16:42:49+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/post/second/</loc>
+    <lastmod>2025-08-24T16:42:49+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/post/first/</loc>
     <lastmod>2025-08-24T15:46:01+02:00</lastmod>
   </url><url>
     <loc>https://jumpbrain.github.io/page/categories/</loc>
