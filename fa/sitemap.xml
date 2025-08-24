@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jumpbrain.github.io/page/fa/facategories/</loc>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/fa/faseries/</loc>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/fa/fatags/</loc>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/fa/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jumpbrain.github.io/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://jumpbrain.github.io/page/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://jumpbrain.github.io/page/fa/"
+                />
+  </url>
+</urlset>
