@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Research on Jumpbrain</title>
+    <link>https://jumpbrain.github.io/page/categories/research/</link>
+    <description>Recent content in Research on Jumpbrain</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Aug 2025 17:50:00 +0200</lastBuildDate>
+    <atom:link href="https://jumpbrain.github.io/page/categories/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>https://jumpbrain.github.io/page/posts/first/</link>
+      <pubDate>Sat, 23 Aug 2025 17:50:00 +0200</pubDate>
+      <guid>https://jumpbrain.github.io/page/posts/first/</guid>
+      <description>&lt;h1 id=&#34;this-is-a-header&#34;&gt;this is a header&lt;/h1&gt;
+&lt;h2 id=&#34;this-is-a-subheader&#34;&gt;this is a subheader&lt;/h2&gt;
+&lt;p&gt;this is plaintext&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

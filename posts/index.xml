@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Jumpbrain</title>
-    <link>https://jumpbrain.github.io/page/</link>
-    <description>Recent content on Jumpbrain</description>
+    <title>Posts on Jumpbrain</title>
+    <link>https://jumpbrain.github.io/page/posts/</link>
+    <description>Recent content in Posts on Jumpbrain</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Aug 2025 18:48:55 +0200</lastBuildDate>
-    <atom:link href="https://jumpbrain.github.io/page/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>https://jumpbrain.github.io/page/about/</link>
-      <pubDate>Sat, 23 Aug 2025 18:48:55 +0200</pubDate>
-      <guid>https://jumpbrain.github.io/page/about/</guid>
-      <description>&lt;p&gt;What did you expect to find here?&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Sat, 23 Aug 2025 17:55:36 +0200</lastBuildDate>
+    <atom:link href="https://jumpbrain.github.io/page/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Second</title>
       <link>https://jumpbrain.github.io/page/posts/second/</link>

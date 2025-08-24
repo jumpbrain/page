@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>https://jumpbrain.github.io/page/en/sitemap.xml</loc>
-    
-      <lastmod>2025-08-24T16:53:19+02:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://jumpbrain.github.io/page/fr/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://jumpbrain.github.io/page/fa/sitemap.xml</loc>
-    
-  </sitemap>
-  
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jumpbrain.github.io/page/about/</loc>
+    <lastmod>2025-08-23T18:48:55+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/</loc>
+    <lastmod>2025-08-23T18:48:55+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/posts/</loc>
+    <lastmod>2025-08-23T17:55:36+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/posts/second/</loc>
+    <lastmod>2025-08-23T17:55:36+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/categories/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/posts/first/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/tags/orderflow/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/tags/psychology/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/categories/research/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/tags/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/categories/trading/</loc>
+    <lastmod>2025-08-23T17:50:00+02:00</lastmod>
+  </url><url>
+    <loc>https://jumpbrain.github.io/page/archives/</loc>
+  </url>
+</urlset>
