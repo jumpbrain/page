@@ -9,13 +9,11 @@
     <lastBuildDate>Sat, 23 Aug 2025 17:50:00 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/page/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First</title>
+      <title>This is a title</title>
       <link>http://localhost:1313/page/posts/first/</link>
       <pubDate>Sat, 23 Aug 2025 17:50:00 +0200</pubDate>
       <guid>http://localhost:1313/page/posts/first/</guid>
-      <description>&lt;h1 id=&#34;this-is-a-header&#34;&gt;this is a header&lt;/h1&gt;
-&lt;h2 id=&#34;this-is-a-subheader&#34;&gt;this is a subheader&lt;/h2&gt;
-&lt;p&gt;this is plaintext&lt;/p&gt;</description>
+      <description>Template of useful stuff</description>
     </item>
   </channel>
 </rss>
