@@ -8,7 +8,11 @@
 <title>Beauty Contest | Jumpbrain</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-
+  
+  
+    JavaScript is required to view the Beauty Contest app. You can open it directly at
+    https://keynesianbeautycontest.streamlit.app.
+  
 
 
 ">
@@ -78,7 +82,7 @@
 </script><meta property="og:url" content="https://jumpbrain.github.io/page/beauty-contest/">
   <meta property="og:site_name" content="Jumpbrain">
   <meta property="og:title" content="Beauty Contest">
-  <meta property="og:description" content=" ">
+  <meta property="og:description" content="JavaScript is required to view the Beauty Contest app. You can open it directly athttps://keynesianbeautycontest.streamlit.app.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -164,11 +168,46 @@
     Beauty Contest
   </h1>
 </header>
-<div class="post-content"><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="post-content"><div id="beauty-contest-embed">
+  <iframe
+    src="https://keynesianbeautycontest.streamlit.app"
+    title="Beauty Contest App"
+    loading="lazy"
+    allow="fullscreen; clipboard-read; clipboard-write"
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+  ></iframe>
+  <noscript>
+    JavaScript is required to view the Beauty Contest app. You can open it directly at
+    <a href="https://keynesianbeautycontest.streamlit.app" rel="noopener" target="_blank">https://keynesianbeautycontest.streamlit.app</a>.
+  </noscript>
+</div>
+<style>
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  main.main {
+    padding: 0;
+  }
+  #beauty-contest-embed {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #111;
+  }
+  #beauty-contest-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+<script>
+  (function () {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  })();
+</script>
 
 
 </div>
