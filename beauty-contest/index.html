@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/page/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=page/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Beauty Contest | Jumpbrain</title>
 <meta name="keywords" content="">
-<meta name="description" content="Keynesian Beauty Contest
-An interactive Streamlit sandbox for experimenting with repeated Keynesian Beauty Contests between LLM agents. Three personas play every match:
+<meta name="description" content="
 
-Vanilla – a naive baseline that anchors around straightforward best responses.
-Strategic – a k-level reasoner that iteratively anticipates opponents.
-Agressor – a red-team style agent that pushes offensive, high-impact guesses.
 
-The UI exposes temperature controls, starter policies (random or manual), turn-by-turn internals, and live score tracking so you can observe how different prompting strategies evolve over ten rounds.">
+
+">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/page/beauty-contest/">
-<link crossorigin="anonymous" href="http://localhost:1313/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/page/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/page/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/page/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/page/safari-pinned-tab.svg">
+<link rel="canonical" href="https://jumpbrain.github.io/page/beauty-contest/">
+<link crossorigin="anonymous" href="/page/assets/css/stylesheet.a5781257de4197b8e3d54346acdf1dd55a9ba4cb91dcace192fc1baf228c08b5.css" integrity="sha256-pXgSV95Bl7jj1UNGrN8d1VqbpMuR3KzhkvwbryKMCLU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jumpbrain.github.io/page/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jumpbrain.github.io/page/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jumpbrain.github.io/page/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jumpbrain.github.io/page/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jumpbrain.github.io/page/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/page/beauty-contest/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/page/beauty-contest/">
+<link rel="alternate" type="application/rss+xml" href="https://jumpbrain.github.io/page/beauty-contest/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://jumpbrain.github.io/page/beauty-contest/">
 <noscript>
     <style>
         #theme-toggle,
@@ -47,60 +44,68 @@ The UI exposes temperature controls, starter policies (random or manual), turn-b
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
 </noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-        ]
-    });
-});
-</script>
-
-</head>
-
-<body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
     } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
+       document.querySelector("html").dataset.theme = 'light';
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
     }
 
-</script>
+</script><meta property="og:url" content="https://jumpbrain.github.io/page/beauty-contest/">
+  <meta property="og:site_name" content="Jumpbrain">
+  <meta property="og:title" content="Beauty Contest">
+  <meta property="og:description" content=" ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Beauty Contest">
+<meta name="twitter:description" content="">
 
-<header class="header">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Beauty Contest",
+      "item": "https://jumpbrain.github.io/page/beauty-contest/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
+            <a href="https://jumpbrain.github.io/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -126,27 +131,27 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Jumpbrain">
+                <a href="https://jumpbrain.github.io/page/" title="Jumpbrain">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://jumpbrain.github.io/page/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/beauty-contest/" title="Beauty Contest">
-                    <span>Beauty Contest</span>
+                <a href="https://jumpbrain.github.io/page/beauty-contest/" title="Beauty Contest">
+                    <span class="active">Beauty Contest</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archives">
+                <a href="https://jumpbrain.github.io/page/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://jumpbrain.github.io/page/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -159,78 +164,18 @@ document.addEventListener("DOMContentLoaded", function() {
     Beauty Contest
   </h1>
 </header>
-<div class="post-content"><h1 id="keynesian-beauty-contest">Keynesian Beauty Contest<a hidden class="anchor" aria-hidden="true" href="#keynesian-beauty-contest">#</a></h1>
-<p>An interactive Streamlit sandbox for experimenting with repeated Keynesian Beauty Contests between LLM agents. Three personas play every match:</p>
-<ul>
-<li><strong>Vanilla</strong> – a naive baseline that anchors around straightforward best responses.</li>
-<li><strong>Strategic</strong> – a k-level reasoner that iteratively anticipates opponents.</li>
-<li><strong>Agressor</strong> – a red-team style agent that pushes offensive, high-impact guesses.</li>
-</ul>
-<p>The UI exposes temperature controls, starter policies (random or manual), turn-by-turn internals, and live score tracking so you can observe how different prompting strategies evolve over ten rounds.</p>
-<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
-<ul>
-<li>Streamlit interface with one-click <code>Run Turn</code>, <code>Run Simulation</code>, and <code>Restart</code> controls.</li>
-<li>Player-specific colors on the cumulative score chart with integer turn ticks.</li>
-<li>Sidebar controls for randomized or manual starters plus per-agent temperatures.</li>
-<li>Automatic per-turn logging to <code>data/moves.csv</code> (created on demand) for post-game analysis.</li>
-<li>Prompt templates tailored to each persona so behaviour stays aligned during multi-round play.</li>
-</ul>
-<h2 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h2>
-<ul>
-<li>Python 3.11</li>
-<li>Streamlit-compatible API keys (e.g., OpenAI) configured as environment variables before launching the app.</li>
-</ul>
-<p>You can store credentials in a local <code>.env</code> file (kept out of version control) with values such as:</p>
-<pre tabindex="0"><code>OPENAI_API_KEY=&#34;...&#34;
-</code></pre><h2 id="quick-start">Quick Start<a hidden class="anchor" aria-hidden="true" href="#quick-start">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#000">git</span> <span style="color:#000">clone</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">repo</span> <span style="color:#000">url</span><span style="color:#000;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87">cd </span><span style="color:#000">beauty</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">python</span> <span style="color:#000">-m</span> <span style="color:#000">venv</span> <span style="color:#000;font-weight:bold">.</span><span style="color:#000">venv</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">venv</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">Scripts</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">activate</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">pip</span> <span style="color:#000">install</span> <span style="color:#000">-r</span> <span style="color:#000">requirements</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">txt</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">python</span> <span style="color:#000">-m</span> <span style="color:#000">streamlit</span> <span style="color:#000">run</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">py</span>
-</span></span></code></pre></div><p>Open the local Streamlit URL provided in the terminal. The default session randomizes the starting player each round; toggle the sidebar to pick a manual starter if you need deterministic ordering.</p>
-<h2 id="project-layout">Project Layout<a hidden class="anchor" aria-hidden="true" href="#project-layout">#</a></h2>
-<ul>
-<li><code>app.py</code> – Streamlit entry point.</li>
-<li><code>views/</code> – UI components (headers, sidebar, displays).</li>
-<li><code>game/</code> – Arena orchestration, players, and referee logic.</li>
-<li><code>prompting/</code> – System and user prompt templates for each persona.</li>
-<li><code>models/</code> – Pydantic models and CSV/Mongo storage adapters.</li>
-<li><code>tools/</code> – Maintenance utilities such as the moves tidy script.</li>
-<li><code>data/</code> – Created automatically to hold move logs (<code>moves.csv</code>).</li>
-</ul>
-<h2 id="acknowledgements">Acknowledgements<a hidden class="anchor" aria-hidden="true" href="#acknowledgements">#</a></h2>
-<p>Inspired by Edward Donner&rsquo;s Outsmart arena. This sandbox is built on the same idea of competitive LLM play.</p>
-<h2 id="license">License<a hidden class="anchor" aria-hidden="true" href="#license">#</a></h2>
-<p>This repository uses a custom license that allows personal/internal use but requires written permission before you redistribute the software. See <code>LICENSE</code> for full terms.</p>
-
-
-
-
-
-  <style>
-    .streamlit-overlay{
-      position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#fff;display:flex;flex-direction:column;
-    }
-    .streamlit-overlay .sc-close{position:absolute;top:0.5rem;right:0.5rem;z-index:10000;background:#111;color:#fff;padding:0.4rem 0.6rem;border-radius:4px;text-decoration:none}
-    .streamlit-overlay iframe{flex:1;border:0;width:100%;height:100%;}
-    body.hugo-streamlit-open{overflow:hidden;height:100vh}
-  </style>
-  <div id="streamlit-overlay" class="streamlit-overlay">
-    <a class="sc-close" href="#" onclick="document.getElementById('streamlit-overlay').style.display='none';document.body.classList.remove('hugo-streamlit-open');return false;">Close</a>
-    <iframe src="https://keynesianbeautycontest.streamlit.app" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
-  </div>
-  <script>document.body.classList.add('hugo-streamlit-open');</script>
-
-
+<div class="post-content"><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 
 </div>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/page/">Jumpbrain</a></span> · 
+        <span>&copy; 2025 <a href="https://jumpbrain.github.io/page/">Jumpbrain</a></span> · 
 
     <span>
         Powered by
@@ -245,9 +190,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -288,11 +238,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
