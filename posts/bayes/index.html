@@ -7,10 +7,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Data Scientist at War: Part 2 | Jumpbrain</title>
 <meta name="keywords" content="Useful thought model, Bayes">
-<meta name="description" content="Another useful thought model">
+<meta name="description" content="Structured, bidirectional information flow">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/page/posts/bayes/">
-<link crossorigin="anonymous" href="/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="http://localhost:1313/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/page/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/page/favicon-32x32.png">
@@ -118,27 +118,27 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/page/" title="Jumpbrain">
+                <a href="http://localhost:1313/" title="Jumpbrain">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/page/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/page/tags/" title="Tags">
-                    <span>Tags</span>
+                <a href="http://localhost:1313/beauty-contest/" title="Beauty Contest">
+                    <span>Beauty Contest</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/page/archives/" title="Archives">
+                <a href="http://localhost:1313/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/page/about/" title="About">
+                <a href="http://localhost:1313/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -152,208 +152,101 @@ document.addEventListener("DOMContentLoaded", function() {
     
     <h1 class="post-title entry-hint-parent">
       Data Scientist at War: Part 2
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h1>
     <div class="post-description">
-      Another useful thought model
+      Structured, bidirectional information flow
     </div>
-    <div class="post-meta"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;6 min
+    <div class="post-meta"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;10 min
 
 </div>
   </header> 
-  <div class="post-content"><h3 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h3>
-<p>You&rsquo;re deployed as an analyst in a country called Extremiststan. The FOB at which you sit is located a few miles south of the main city, Dystopolis. Tonight, some of your high-speed colleagues are going to meet with a prospective source. They want your judgement on which route to take.</p>
-<p>There are three roads leading into Dystopolis, the horizontal road, the vertical road and the diagonal road.</p>
-<p>To answer this you scrape incident reports via some pre-defined social media channels that you&rsquo;re currently tracking as well as police reports sourced from the local department. You aggregate the last year of data for each road.</p>
-<p>The vertical road had a spike in incidents over the last two weeks. In the last 72 hours, exactly zero reported incidents on that road. Perfect, you run a quick calculation, the vertical road has the lowest probability of incidents in the next 12 hours. You recommend it.</p>
-<p>Only after your recommendation do you notice two details:</p>
-<p>The vertical road has been red listed by local police. They no longer respond there. A local news agency publicly announced they stopped sending crews there 72 hours ago. Your collegaues have already left.</p>
-<p>The next morning they return, in three body bags.</p>
+  <div class="post-content"><blockquote>
+<p>It&rsquo;s not about the tools, it&rsquo;s how you apply them. In data science, it&rsquo;s not about the model&hellip;</p></blockquote>
+<p>I call all models &rsquo;thought models&rsquo; for a reason. It should ideally force you to confront YOUR known facts, YOUR priors and YOUR assumptions about them explicitly. It&rsquo;s not about the model, it&rsquo;s about your thinking about the model.</p>
+<p>That&rsquo;s why I&rsquo;m drawn to statistical models and algos in general. Beyond trivial notation, beneath the practical aspects, you find very clever best-practices that instantly elevate your reasoning. Consider this&hellip;</p>
+<h3 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h3>
+<p>You&rsquo;re a forward deployed analyst in a country called Extremiststan. The FOB at which you sit is located a few miles south of the main city, Dystopolis. Tonight, some of your colleagues are going to meet with a prospective source. There are three roads leading into Dystopolis, the horizontal road, the vertical road and the diagonal road. They need your call on which route to take.</p>
+<p>You scrape incident reports via some social media channels that you&rsquo;re currently tracking as well as police reports sourced from the local department. You aggregate the last year of data for each road.</p>
+<p>The vertical road has seen a spike in incidents over the last two weeks, then it cleared up. In the last 72 hours exactly zero incidents have been reported on that road.</p>
+<p>Perfect! You run a quick forecast, the vertical road has the lowest probability of incidents over the next 12 hours. You recommend it. They move out.</p>
+<p>A few moments later, you find that:</p>
+<p>The vertical road has been red listed by local police. They no longer respond there. A local news station has been trying to send crews there but the reporters won&rsquo;t go. A reporter from a competing local news agency recently responded to a tweet (X) that he wouldn&rsquo;t set foot there no matter what. Your collegaues left 2 hours ago&hellip;</p>
 <blockquote>
-<p>When events are rare, messy, or selectively observed, think in terms of a <strong>latent risk surface</strong>, not raw counts.</p></blockquote>
-<p>This example shows up in conflict zones, cyber incidents, fraud, medical risk, and reliability engineering.</p>
-<p>First things first, when we think of count data, e.g number of incidents on a road during some time span, it&rsquo;s often helpful to think of the counts as manifestations of some underlying risk surface that we cannot directly observe (that&rsquo;s what latent means).</p>
+<p>Sh*t!</p></blockquote>
+<p>Similar examples show up in cyber incidents, medical risk, the list goes on&hellip; You don&rsquo;t need a Masters in statistics to see the problem. No exposure, no patrols, no reporters, no logs, can make a very dangerous road look favourable.</p>
+<p>When thinking about count data, e.g number of incidents on a road over time, try and think of the counts as manifestations from an underlying (latent) risk surface, that you cannot directly observe.</p>
+<p>Then, you model that surface&hellip;</p>
 <h3 id="method">Method<a hidden class="anchor" aria-hidden="true" href="#method">#</a></h3>
-<p>We build a minimal Bayesian model that separates:</p>
-<ol>
-<li>How much <em>exposure</em> each road segment has.</li>
-<li>How risky that road or day is, after adjusting for exposure.</li>
-<li>How information should be pooled across roads and days when data are sparse.</li>
-</ol>
-<h4 id="data">Data<a hidden class="anchor" aria-hidden="true" href="#data">#</a></h4>
-<p>In our Extremiststan toy data:</p>
-<ul>
-<li>Each row is a road segment on a given day.</li>
-<li>We observe:
-<ul>
-<li><code>incidents</code>: number of incidents on that segment-day.</li>
-<li><code>road</code>: which of the three roads.</li>
-<li><code>segment</code>: segment ID along the road.</li>
-<li><code>day</code>: index for the day.</li>
-<li><code>x, y</code>: coordinates for plotting.</li>
-<li><code>exposure</code>: a proxy for how much “opportunity” there was for something bad to happen.</li>
-</ul>
-</li>
-</ul>
-<p>You can think of <code>exposure</code> as:</p>
-<ul>
-<li>number of vehicles using that segment,</li>
-<li>patrol presence,</li>
-<li>or simply “how much of that road was observable and reportable.”</li>
-</ul>
-<p>If exposure collapses (no one drives there, no one reports from there), then <em>even a very dangerous road will appear quiet in the raw counts</em>.</p>
-<h4 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h4>
-<p>We model incident counts as Poisson outcomes driven by a latent rate:</p>
-<p>[
-y_i \sim \text{Poisson}(\mu_i)
-]</p>
-<p>with</p>
-<p>[
-\log \mu_i
-= \alpha</p>
-<ul>
-<li>u_{\text{road}[i]}</li>
-<li>v_{\text{day}[i]}</li>
-<li>\beta_{\text{exp}} \cdot \text{zlogexp}_i
-]</li>
-</ul>
-<p>where:</p>
-<ul>
-<li>(\alpha): global baseline log-rate.</li>
-<li>(u_{\text{road}}): road-specific deviations (hierarchical, sum-to-zero).</li>
-<li>(v_{\text{day}}): day-specific deviations (hierarchical, sum-to-zero).</li>
-<li>(\text{zlogexp}_i): standardized log-exposure for that segment-day.</li>
-<li>(\beta_{\text{exp}}): effect of exposure on incident counts.</li>
-</ul>
-<p>Priors (kept weakly informative and interpretable):</p>
-<ul>
-<li>(\alpha \sim \mathcal{N}(-4, 1)): starts us in a plausible low baseline range for rare incidents.</li>
-<li>(\sigma_{\text{road}} \sim \text{HalfNormal}(0.5)): typical road-to-road differences are modest unless data demand otherwise.</li>
-<li>(\sigma_{\text{day}} \sim \text{HalfNormal}(0.2)): daily noise is present but not allowed to explode without evidence.</li>
-<li>(u_{\text{road}}, v_{\text{day}}) are centered to sum to zero: they represent deviations, not duplicated intercepts.</li>
-<li>(\beta_{\text{exp}} \sim \mathcal{N}(0, 0.5)): allows exposure to scale risk but shrinks towards “no effect” if signal is weak.</li>
-</ul>
-<p>Implementation: Hamiltonian Monte Carlo in PyMC with 4 chains, sufficient warmup, and standard diagnostics (R-hat, effective sample size, energy plots, trace plots) to ensure we are sampling from a stable posterior.</p>
-<h4 id="why-this-structure">Why this structure?<a hidden class="anchor" aria-hidden="true" href="#why-this-structure">#</a></h4>
-<p>Key points:</p>
-<ol>
-<li>
-<p><strong>Counts are conditional on exposure.</strong><br>
-A segment with 0 incidents and 0 traffic tells you very little about safety.<br>
-A segment with 0 incidents and heavy traffic is actually informative.</p>
-</li>
-<li>
-<p><strong>Partial pooling across roads and days.</strong><br>
-Each road and each day borrows strength from the others. You avoid wild swings in risk estimates after a handful of incidents or a short quiet period.</p>
-</li>
-<li>
-<p><strong>Latent risk surface.</strong><br>
-The parameter (\mu_i) (or (\mu_i) per unit exposure) is our estimate of the <em>underlying risk</em>, even when observed counts are temporarily zero.</p>
-</li>
-<li>
-<p><strong>Explicit assumptions.</strong></p>
-<ul>
-<li>Poisson counts given the latent rate.</li>
-<li>Log-linear relationship with exposure.</li>
-<li>Road and day effects are approximately Gaussian deviations.</li>
-<li>Reporting and exposure are encoded (imperfectly) in <code>exposure</code>.</li>
-</ul>
-</li>
-</ol>
-<p>The point is not that this model is “true,” but that it is <strong>less naive</strong> than eyeballing raw counts or simple last-48-hours frequencies.</p>
-<hr>
+<p>We briefly go over the simulated data, read scenario, and cover a hierarchical approach.</p>
+<h3 id="data">Data<a hidden class="anchor" aria-hidden="true" href="#data">#</a></h3>
+<p>The Extremiststan situation is simplistic. Each day, each segment of each road either sees some incidents or not. A road segment on a given day will produce 1 row in our data. We observe number of incidents on that segment and day. We note down which of the three roads. We use segment ID&rsquo;s along the roads, an index for the day, coordinates for plotting and a proxy for how much opportunity there was for something bad to happen, called exposure.</p>
+<p>You can think of exposure as, number of vehicles using that segment, patrol presence or how much of that road was observable and reportable.</p>
+<p>We call the observed incident count on segment–day $i$ by $y_i$. For that observation we have corresponding exposure $exp_i$, $road[i]$ and $day[i]$.</p>
+<h2 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h2>
+<p>The reason why you use a hierarchy is that it allows a controlled way for information to flow.</p>
+<p>[image]</p>
+<p>The $\alpha$ and hyperparameters $\simga_{road}$ and $\sigma_{day}$ sit at the top of the hierarchy. They summarize overall activity and heterogeneity between different roads and different days. Think of it like <strong>regional information</strong> trickling down to your risk estimates for individual roads. Underneath that you have the road-level deviations. $u_r carries tendencies of each road and the day-level deviations over time. $v_d$ carries system wide swings over time. At the bottom we have the segment-day means $\mu_i$.</p>
+<p>When you observe a count $y_i$ on one segment, at one time, you&rsquo;re nudging the segment, its road, its day, and through them the global/overarching picture.</p>
+<blockquote>
+<p>Information flow upwards.</p></blockquote>
+<p>That updated global/overarching picture feeds back into all other segments, especially where there is little direct data.</p>
+<blockquote>
+<p>Information flow downwards.</p></blockquote>
+<p>That is the point of a hierarchical approach, structured, bi-directional information flow between local/ground and global/overarching levels of information.</p>
+<p>For this toy example we start with a simple Poisson model for count data (maths can induce panic, try skimming through this part anyway, you might surprise yourself, it&rsquo;s <strong>easier</strong> than it looks at first glance):</p>
+<p>$y_i \sim Poisson(\mu_i)$</p>
+<p>Here $\mu_i$ represents the expected number of incidents on that segment-day. We could define it as a rate,</p>
+<p>$$\lambda_i = \frac{\mu_i}{exp_i}$$</p>
+<p>But for cleanliness we prefer the log-scale and treat exposure as a covariate:</p>
+<p>$$log \mu_i = \alpha + u_{road[i]}+ v_{day[i]} + \beta_{exp} \cdot zlogexp_i$$</p>
+<p>where $zlogexp_i$ is the standardized log(exp_i).</p>
+<p>$\alpha$ is a global baseline log-rate, think of it as regional assessments. If all deviations were zero, it&rsquo;s the log <strong>expected</strong> incident count at typical exposure for the region. The $u_{road}$ terms are road specific deviations around that baseline. The $v_{day}$ terms are day-specific deviations that capture the overall swings over time. $\beta_{exp}$ describes how strongly the expected count scales with exposure once we have already accounted for road and day.</p>
+<p>The hierarchical part comes from how we treat those road and day effects. Instead of giving each road its own unrelated parameter, we assume that roads are similar but not identical draws from a common distribution (keep reading). Formally,</p>
+<p>$$u_r \sim N(0, \sigma_{road})$$ for $r \in 1, &hellip;, R$.</p>
+<p>$$v_d \sim N(0, \sigma_day)$$ for $d \in 1, &hellip;, D$.</p>
+<p>To maintain $\alpha$ as the global average log-rate and the road/day terms as deviations, rather than duplicate intercepts we typically place constraints by,</p>
+<p>$\sum_{r=1}^R v_r = 0$ and $\sum_{d=1}^D v_d = 0$</p>
+<p>The hyperparameters $\sigma_{road}$ and $\sigma_{day}$ control how tightly roads and days are coupled to the global mean. With small $\sigma_{road}$ the models believes the roads behave similarily, their effects are pulled toward zero unless the data clearly states something different. With large $\simga_{road}$ the model is willing to let roads drift far away from each other. We use a weakly informed prior for them,</p>
+<p>$$\simga_{road} \sim N^+(0.5)$$</p>
+<p>$$\sigma_{day} \sim N^+(0.2)$$</p>
+<p>Basically, differences exist, but the default is modest differences unless the data shows big gaps.</p>
+<p>The global baseline gets a weakly informative prior in a plausible range for rare incidents,</p>
+<p>$$\alpha \sim N(-4, 1)$$</p>
+<p>The exposure coefficient is allowed to move but gently shrunk toward zero,</p>
+<p>$$\beta_{exp} \sim N(0, 0.5)$$</p>
+<p>We then fit this model with Hamiltonian Monte Carlo in PyMC.</p>
 <h3 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h3>
-<p>From this model, we obtain:</p>
-<ul>
-<li>
-<p>Posterior draws of (\mu_i) for every segment and day.</p>
-</li>
-<li>
-<p>Segment-level summaries:</p>
-<p>[
-\hat{\mu}_{\text{seg}} = \mathbb{E}[\mu_i \mid \text{road}, \text{segment}]
-]</p>
-</li>
-<li>
-<p>Maps that shade each segment by its posterior mean latent risk.</p>
-</li>
-</ul>
-<p>Even in a minimal simulated Extremiststan scenario, several useful patterns emerge:</p>
-<ol>
-<li>
-<p><strong>Roads with recent “silence” can still have elevated latent risk.</strong><br>
-If a road historically has high incidents <em>and</em> exposure suddenly drops (police withdrawal, media blackout, fewer travelers), the model does <strong>not</strong> treat “0 incidents yesterday” as strong evidence of safety.<br>
-It sees:</p>
-<ul>
-<li>lower exposure,</li>
-<li>past high risk,</li>
-<li>similarity to other dangerous segments,
-and it keeps the latent rate elevated.</li>
-</ul>
-</li>
-<li>
-<p><strong>Noisy spikes get shrunk.</strong><br>
-If one segment has a short-lived spike but:</p>
-<ul>
-<li>other segments on the same road are quiet,</li>
-<li>or similar days show moderate risk,
-the hierarchical structure pulls that spike back toward the road-level average.<br>
-This avoids overreacting to one-off events.</li>
-</ul>
-</li>
-<li>
-<p><strong>Maps become decision tools, not just pictures.</strong><br>
-Plotting the posterior mean latent risk by segment creates a risk surface you can use:</p>
-<ul>
-<li>identify consistently dangerous stretches,</li>
-<li>compare alternative routes <em>on a comparable scale</em>,</li>
-<li>explain to non-technical stakeholders that “these colors are not counts, they are best guesses of underlying danger after adjusting for exposure and noise.”</li>
-</ul>
-</li>
-<li>
-<p><strong>Posterior predictive checks keep you honest.</strong><br>
-We simulate new incident patterns from the fitted model and compare them to observed totals by road.</p>
-<ul>
-<li>If the observed totals fall comfortably inside the model’s predictive distribution, our structure is at least compatible with the data.</li>
-<li>If not, the model is missing something (e.g., spatial dependence, temporal persistence, changes in tactics, reporting bias) and should be revised.</li>
-</ul>
-</li>
-</ol>
-<p>This is the core mental move: treat observed incidents as <strong>partial, biased evidence</strong> about a hidden process, not as the process itself.</p>
-<hr>
+<p>Posting this again for clarity:</p>
+<p>$$log \mu_i = \alpha + u_{road[i]}+ v_{day[i]} + \beta_{exp} \cdot zlogexp_i$$</p>
+<p>Now, return to the vertical road. For two weeks it was active, several incidents distributed over segments and days, with decent exposure. Those data have already pushed its road effect up relative to the other roads in the area. They have also told the model something about the variability for all roads: roads are not identical; at least one of them behaves worse than the grand mean.</p>
+<p>Next, exposure on that road collapses. Patrols avoid it, civilians detour, media shy away. What you see in the feed is a string of zeros.</p>
+<p>In a non-hierarchical, the one you used in the intro, those zeros can be treated in isolation from the other roads. Additionally, the most recent days heavily dominate your estimate of the current risk rate on that road. In that world, one could assume that the vertical road has calmed down, since there is nothing in the structure that remembers, or cares, that this road was systematically bad before everyone stopped going there or that the region overall has gotten worse.</p>
+<p>In the hierarchical model, the same zeros mean something different. They are interpreted against a backdrop of an already elevated incident count on the vertical road, a known exposure pattern, and what the other roads are doing <strong>all the way to the regional level and over time</strong>.</p>
+<p>The information flow is asymmetric. A quiet, heavily travelled road will aggressively pull its road effect down. The model reads that as genuine indications of lower risk: Lots of opportunities, nothing happened. A quiet, abandoned road over a short period barely moves the needle; the prior belief encoded in
+the road effect resists overreaction.</p>
+<p>Even across roads. If you have one very bad road and two very quiet roads, the posterior for road variability has to stretch to accommodate that spread. With more quiet roads, the vertical road has to work harder, data wise, to claim that it is fundamentally different rather than just unlucky. Suppose the diagonal road has been consistently quiet, with good exposure, lots of traffic. All road effects share a deviation term and are tied to the same overarching information about how calm, a calm road can be. This should affect how extreme you are willing to believe the vertical road is.</p>
+<p>Pooling over time behaves similarly. If there is a week where all roads spike, the day effects capture that as a shared elevation in risk over time. When the spike ends, the estimates go back down, but they don&rsquo;t instantly forget that the system had a bad week. On top of that, the individual road effects capture that even on bad weeks, some roads are worse than others, and segment–day means combine the two.</p>
+<p>Out of this machinery you can extract, whatever summary, a map colored by latent risk rather than a count map. Aggregating over time gives you road-level risk estimates that already contain pooling across days and segments. You can even compute probabilities of one route being safer than another, and use that as a more honest input to a discussion than recent counts.</p>
+<p>Is this truth? Of course not. If exposure is mis-measured, if reporting is suppressed, if one road is governed by a genuinely different process you will still be wrong. The difference is that now the wrongness is traceable: you can point directly at terms, road variability, time variable patterns and say;</p>
+<blockquote>
+<p>This is where I expressed my beliefs. This is where I went wrong. This is how I&rsquo;ll adapt.</p></blockquote>
 <h3 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h3>
-<p>“Did anything bad happen on that road yesterday?” is the wrong first question.</p>
-<p>Better questions:</p>
-<ul>
-<li>“Given everything we know about traffic, reporting, and past activity, what is the <strong>latent risk</strong> of that road right now?”</li>
-<li>“How does that risk compare to the alternatives, after adjusting for exposure and shrinkage?”</li>
-<li>“How sensitive are our conclusions to modeling assumptions?”</li>
-</ul>
-<p>The Extremiststan example shows how a small hierarchical Poisson model already cures several common failure modes:</p>
-<ul>
-<li>Over-trusting short-term quiet periods.</li>
-<li>Ignoring exposure and observability.</li>
-<li>Overreacting to small-sample spikes.</li>
-<li>Pretending raw counts are ground truth.</li>
-</ul>
-<p>This is not just about war.</p>
-<p>The same mindset applies when you:</p>
-<ul>
-<li>pick fraud thresholds from historical flags,</li>
-<li>allocate cybersecurity monitoring across services,</li>
-<li>monitor adverse events in healthcare,</li>
-<li>prioritize inspections for infrastructure.</li>
-</ul>
-<p>If you act on raw counts, you are implicitly using a model anyway. It is just an undocumented, brittle, and usually wrong one.</p>
-<p>Write the model down. Make the latent risk explicit. Check it. Update it.</p>
-<p>The body bags in this story are synthetic. In many domains, the consequences are not.</p>
-<hr>
+<p>A hierarchical model is a useful thought tool. It forces you to say, on the record, how you think information should flow between the big picture and the local one.</p>
+<blockquote>
+<p>Keyword is: Humility.</p></blockquote>
+<p>In Extremiststan, the benefit of a small Bayesian hierarchical Poisson model has nothing to do with fancy computation. It is about how information is allowed to flow. The global mean and hyperparameters carry a rough, system-wide (regional) picture. The road-level terms carry persistent, route-specific tendencies but borrow information from one another. The day-level terms carry swings over time. Segment–day risks sit at the bottom of this stack and are shaped by all of the above.</p>
+<p>Counts still matter. Zeros still matter. A zero with high exposure on an ordinarily safe road is strong evidence of safety. The same zero with low exposure on a historically dangerous, partially abandoned road is not. The hierarchy encodes that difference.</p>
+<p>As with our power-weighted prediction exercise for the Russo–Ukrainian war, [link to post], the final warning is the same. These estimates are not data; they are your assumptions, pushed through a model and returned to you in numeric form. If you are biased about which roads are similar or how exposure works, the output will mirror that bias.</p>
 <h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
-<ul>
-<li>Gelman, A., Hill, J., &amp; Vehtari, A. <em>Regression and Other Stories.</em> Cambridge University Press.</li>
-<li>McElreath, R. <em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan.</em> CRC Press.</li>
-<li>Carpenter, B. et al. &ldquo;Stan: A Probabilistic Programming Language.&rdquo; <em>Journal of Statistical Software.</em></li>
-<li>PyMC documentation: Bayesian modeling and probabilistic programming in Python.</li>
-</ul>
+<p>Gelman, A., Hill, J., &amp; Vehtari, A. (2020). Regression and Other Stories. Cambridge University Press.</p>
+<p>McElreath, R. (2020). Statistical Rethinking: A Bayesian Course with Examples in R and Stan (2nd ed.). CRC Press.</p>
+<p>PyMC Development Team. PyMC: Bayesian Modeling and Probabilistic Programming in Python.</p>
 
 
   </div>
