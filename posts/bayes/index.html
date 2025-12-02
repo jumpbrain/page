@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/page/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=page/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Data Scientist at War: Part 2 | Jumpbrain</title>
+<meta name="keywords" content="Useful thought model, Bayes">
+<meta name="description" content="Another useful thought model">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/page/posts/bayes/">
+<link crossorigin="anonymous" href="/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/page/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/page/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/page/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/page/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/page/posts/bayes/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+        ]
+    });
+});
+</script>
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/page/" title="Jumpbrain">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/page/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/page/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/page/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/page/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Data Scientist at War: Part 2
+    </h1>
+    <div class="post-description">
+      Another useful thought model
+    </div>
+    <div class="post-meta"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;6 min
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h3>
+<p>You&rsquo;re deployed as an analyst in a country called Extremiststan. The FOB at which you sit is located a few miles south of the main city, Dystopolis. Tonight, some of your high-speed colleagues are going to meet with a prospective source. They want your judgement on which route to take.</p>
+<p>There are three roads leading into Dystopolis, the horizontal road, the vertical road and the diagonal road.</p>
+<p>To answer this you scrape incident reports via some pre-defined social media channels that you&rsquo;re currently tracking as well as police reports sourced from the local department. You aggregate the last year of data for each road.</p>
+<p>The vertical road had a spike in incidents over the last two weeks. In the last 72 hours, exactly zero reported incidents on that road. Perfect, you run a quick calculation, the vertical road has the lowest probability of incidents in the next 12 hours. You recommend it.</p>
+<p>Only after your recommendation do you notice two details:</p>
+<p>The vertical road has been red listed by local police. They no longer respond there. A local news agency publicly announced they stopped sending crews there 72 hours ago. Your collegaues have already left.</p>
+<p>The next morning they return, in three body bags.</p>
+<blockquote>
+<p>When events are rare, messy, or selectively observed, think in terms of a <strong>latent risk surface</strong>, not raw counts.</p></blockquote>
+<p>This example shows up in conflict zones, cyber incidents, fraud, medical risk, and reliability engineering.</p>
+<p>First things first, when we think of count data, e.g number of incidents on a road during some time span, it&rsquo;s often helpful to think of the counts as manifestations of some underlying risk surface that we cannot directly observe (that&rsquo;s what latent means).</p>
+<h3 id="method">Method<a hidden class="anchor" aria-hidden="true" href="#method">#</a></h3>
+<p>We build a minimal Bayesian model that separates:</p>
+<ol>
+<li>How much <em>exposure</em> each road segment has.</li>
+<li>How risky that road or day is, after adjusting for exposure.</li>
+<li>How information should be pooled across roads and days when data are sparse.</li>
+</ol>
+<h4 id="data">Data<a hidden class="anchor" aria-hidden="true" href="#data">#</a></h4>
+<p>In our Extremiststan toy data:</p>
+<ul>
+<li>Each row is a road segment on a given day.</li>
+<li>We observe:
+<ul>
+<li><code>incidents</code>: number of incidents on that segment-day.</li>
+<li><code>road</code>: which of the three roads.</li>
+<li><code>segment</code>: segment ID along the road.</li>
+<li><code>day</code>: index for the day.</li>
+<li><code>x, y</code>: coordinates for plotting.</li>
+<li><code>exposure</code>: a proxy for how much “opportunity” there was for something bad to happen.</li>
+</ul>
+</li>
+</ul>
+<p>You can think of <code>exposure</code> as:</p>
+<ul>
+<li>number of vehicles using that segment,</li>
+<li>patrol presence,</li>
+<li>or simply “how much of that road was observable and reportable.”</li>
+</ul>
+<p>If exposure collapses (no one drives there, no one reports from there), then <em>even a very dangerous road will appear quiet in the raw counts</em>.</p>
+<h4 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h4>
+<p>We model incident counts as Poisson outcomes driven by a latent rate:</p>
+<p>[
+y_i \sim \text{Poisson}(\mu_i)
+]</p>
+<p>with</p>
+<p>[
+\log \mu_i
+= \alpha</p>
+<ul>
+<li>u_{\text{road}[i]}</li>
+<li>v_{\text{day}[i]}</li>
+<li>\beta_{\text{exp}} \cdot \text{zlogexp}_i
+]</li>
+</ul>
+<p>where:</p>
+<ul>
+<li>(\alpha): global baseline log-rate.</li>
+<li>(u_{\text{road}}): road-specific deviations (hierarchical, sum-to-zero).</li>
+<li>(v_{\text{day}}): day-specific deviations (hierarchical, sum-to-zero).</li>
+<li>(\text{zlogexp}_i): standardized log-exposure for that segment-day.</li>
+<li>(\beta_{\text{exp}}): effect of exposure on incident counts.</li>
+</ul>
+<p>Priors (kept weakly informative and interpretable):</p>
+<ul>
+<li>(\alpha \sim \mathcal{N}(-4, 1)): starts us in a plausible low baseline range for rare incidents.</li>
+<li>(\sigma_{\text{road}} \sim \text{HalfNormal}(0.5)): typical road-to-road differences are modest unless data demand otherwise.</li>
+<li>(\sigma_{\text{day}} \sim \text{HalfNormal}(0.2)): daily noise is present but not allowed to explode without evidence.</li>
+<li>(u_{\text{road}}, v_{\text{day}}) are centered to sum to zero: they represent deviations, not duplicated intercepts.</li>
+<li>(\beta_{\text{exp}} \sim \mathcal{N}(0, 0.5)): allows exposure to scale risk but shrinks towards “no effect” if signal is weak.</li>
+</ul>
+<p>Implementation: Hamiltonian Monte Carlo in PyMC with 4 chains, sufficient warmup, and standard diagnostics (R-hat, effective sample size, energy plots, trace plots) to ensure we are sampling from a stable posterior.</p>
+<h4 id="why-this-structure">Why this structure?<a hidden class="anchor" aria-hidden="true" href="#why-this-structure">#</a></h4>
+<p>Key points:</p>
+<ol>
+<li>
+<p><strong>Counts are conditional on exposure.</strong><br>
+A segment with 0 incidents and 0 traffic tells you very little about safety.<br>
+A segment with 0 incidents and heavy traffic is actually informative.</p>
+</li>
+<li>
+<p><strong>Partial pooling across roads and days.</strong><br>
+Each road and each day borrows strength from the others. You avoid wild swings in risk estimates after a handful of incidents or a short quiet period.</p>
+</li>
+<li>
+<p><strong>Latent risk surface.</strong><br>
+The parameter (\mu_i) (or (\mu_i) per unit exposure) is our estimate of the <em>underlying risk</em>, even when observed counts are temporarily zero.</p>
+</li>
+<li>
+<p><strong>Explicit assumptions.</strong></p>
+<ul>
+<li>Poisson counts given the latent rate.</li>
+<li>Log-linear relationship with exposure.</li>
+<li>Road and day effects are approximately Gaussian deviations.</li>
+<li>Reporting and exposure are encoded (imperfectly) in <code>exposure</code>.</li>
+</ul>
+</li>
+</ol>
+<p>The point is not that this model is “true,” but that it is <strong>less naive</strong> than eyeballing raw counts or simple last-48-hours frequencies.</p>
+<hr>
+<h3 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h3>
+<p>From this model, we obtain:</p>
+<ul>
+<li>
+<p>Posterior draws of (\mu_i) for every segment and day.</p>
+</li>
+<li>
+<p>Segment-level summaries:</p>
+<p>[
+\hat{\mu}_{\text{seg}} = \mathbb{E}[\mu_i \mid \text{road}, \text{segment}]
+]</p>
+</li>
+<li>
+<p>Maps that shade each segment by its posterior mean latent risk.</p>
+</li>
+</ul>
+<p>Even in a minimal simulated Extremiststan scenario, several useful patterns emerge:</p>
+<ol>
+<li>
+<p><strong>Roads with recent “silence” can still have elevated latent risk.</strong><br>
+If a road historically has high incidents <em>and</em> exposure suddenly drops (police withdrawal, media blackout, fewer travelers), the model does <strong>not</strong> treat “0 incidents yesterday” as strong evidence of safety.<br>
+It sees:</p>
+<ul>
+<li>lower exposure,</li>
+<li>past high risk,</li>
+<li>similarity to other dangerous segments,
+and it keeps the latent rate elevated.</li>
+</ul>
+</li>
+<li>
+<p><strong>Noisy spikes get shrunk.</strong><br>
+If one segment has a short-lived spike but:</p>
+<ul>
+<li>other segments on the same road are quiet,</li>
+<li>or similar days show moderate risk,
+the hierarchical structure pulls that spike back toward the road-level average.<br>
+This avoids overreacting to one-off events.</li>
+</ul>
+</li>
+<li>
+<p><strong>Maps become decision tools, not just pictures.</strong><br>
+Plotting the posterior mean latent risk by segment creates a risk surface you can use:</p>
+<ul>
+<li>identify consistently dangerous stretches,</li>
+<li>compare alternative routes <em>on a comparable scale</em>,</li>
+<li>explain to non-technical stakeholders that “these colors are not counts, they are best guesses of underlying danger after adjusting for exposure and noise.”</li>
+</ul>
+</li>
+<li>
+<p><strong>Posterior predictive checks keep you honest.</strong><br>
+We simulate new incident patterns from the fitted model and compare them to observed totals by road.</p>
+<ul>
+<li>If the observed totals fall comfortably inside the model’s predictive distribution, our structure is at least compatible with the data.</li>
+<li>If not, the model is missing something (e.g., spatial dependence, temporal persistence, changes in tactics, reporting bias) and should be revised.</li>
+</ul>
+</li>
+</ol>
+<p>This is the core mental move: treat observed incidents as <strong>partial, biased evidence</strong> about a hidden process, not as the process itself.</p>
+<hr>
+<h3 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h3>
+<p>“Did anything bad happen on that road yesterday?” is the wrong first question.</p>
+<p>Better questions:</p>
+<ul>
+<li>“Given everything we know about traffic, reporting, and past activity, what is the <strong>latent risk</strong> of that road right now?”</li>
+<li>“How does that risk compare to the alternatives, after adjusting for exposure and shrinkage?”</li>
+<li>“How sensitive are our conclusions to modeling assumptions?”</li>
+</ul>
+<p>The Extremiststan example shows how a small hierarchical Poisson model already cures several common failure modes:</p>
+<ul>
+<li>Over-trusting short-term quiet periods.</li>
+<li>Ignoring exposure and observability.</li>
+<li>Overreacting to small-sample spikes.</li>
+<li>Pretending raw counts are ground truth.</li>
+</ul>
+<p>This is not just about war.</p>
+<p>The same mindset applies when you:</p>
+<ul>
+<li>pick fraud thresholds from historical flags,</li>
+<li>allocate cybersecurity monitoring across services,</li>
+<li>monitor adverse events in healthcare,</li>
+<li>prioritize inspections for infrastructure.</li>
+</ul>
+<p>If you act on raw counts, you are implicitly using a model anyway. It is just an undocumented, brittle, and usually wrong one.</p>
+<p>Write the model down. Make the latent risk explicit. Check it. Update it.</p>
+<p>The body bags in this story are synthetic. In many domains, the consequences are not.</p>
+<hr>
+<h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
+<ul>
+<li>Gelman, A., Hill, J., &amp; Vehtari, A. <em>Regression and Other Stories.</em> Cambridge University Press.</li>
+<li>McElreath, R. <em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan.</em> CRC Press.</li>
+<li>Carpenter, B. et al. &ldquo;Stan: A Probabilistic Programming Language.&rdquo; <em>Journal of Statistical Software.</em></li>
+<li>PyMC documentation: Bayesian modeling and probabilistic programming in Python.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/page/tags/useful-thought-model/">Useful Thought Model</a></li>
+      <li><a href="http://localhost:1313/page/tags/bayes/">Bayes</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/page/">Jumpbrain</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -5,11 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>About | Jumpbrain</title>
+<title>Beauty Contest | Jumpbrain</title>
 <meta name="keywords" content="">
-<meta name="description" content="What did you expect to find here?">
+<meta name="description" content="Keynesian Beauty Contest
+An interactive Streamlit sandbox for experimenting with repeated Keynesian Beauty Contests between LLM agents. Three personas play every match:
+
+Vanilla – a naive baseline that anchors around straightforward best responses.
+Strategic – a k-level reasoner that iteratively anticipates opponents.
+Agressor – a red-team style agent that pushes offensive, high-impact guesses.
+
+The UI exposes temperature controls, starter policies (random or manual), turn-by-turn internals, and live score tracking so you can observe how different prompting strategies evolve over ten rounds.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/page/about/">
+<link rel="canonical" href="http://localhost:1313/page/beauty-contest/">
 <link crossorigin="anonymous" href="/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/page/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
@@ -18,7 +25,8 @@
 <link rel="mask-icon" href="http://localhost:1313/page/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/page/about/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/page/beauty-contest/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/page/beauty-contest/">
 <noscript>
     <style>
         #theme-toggle,
@@ -77,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </head>
 
-<body class="" id="top">
+<body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -129,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </li>
             <li>
                 <a href="http://localhost:1313/page/beauty-contest/" title="Beauty Contest">
-                    <span>Beauty Contest</span>
+                    <span class="active">Beauty Contest</span>
                 </a>
             </li>
             <li>
@@ -139,34 +147,86 @@ document.addEventListener("DOMContentLoaded", function() {
             </li>
             <li>
                 <a href="http://localhost:1313/page/about/" title="About">
-                    <span class="active">About</span>
+                    <span>About</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main">
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Beauty Contest
+  </h1>
+</header>
+<div class="post-content"><h1 id="keynesian-beauty-contest">Keynesian Beauty Contest<a hidden class="anchor" aria-hidden="true" href="#keynesian-beauty-contest">#</a></h1>
+<p>An interactive Streamlit sandbox for experimenting with repeated Keynesian Beauty Contests between LLM agents. Three personas play every match:</p>
+<ul>
+<li><strong>Vanilla</strong> – a naive baseline that anchors around straightforward best responses.</li>
+<li><strong>Strategic</strong> – a k-level reasoner that iteratively anticipates opponents.</li>
+<li><strong>Agressor</strong> – a red-team style agent that pushes offensive, high-impact guesses.</li>
+</ul>
+<p>The UI exposes temperature controls, starter policies (random or manual), turn-by-turn internals, and live score tracking so you can observe how different prompting strategies evolve over ten rounds.</p>
+<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
+<ul>
+<li>Streamlit interface with one-click <code>Run Turn</code>, <code>Run Simulation</code>, and <code>Restart</code> controls.</li>
+<li>Player-specific colors on the cumulative score chart with integer turn ticks.</li>
+<li>Sidebar controls for randomized or manual starters plus per-agent temperatures.</li>
+<li>Automatic per-turn logging to <code>data/moves.csv</code> (created on demand) for post-game analysis.</li>
+<li>Prompt templates tailored to each persona so behaviour stays aligned during multi-round play.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h2>
+<ul>
+<li>Python 3.11</li>
+<li>Streamlit-compatible API keys (e.g., OpenAI) configured as environment variables before launching the app.</li>
+</ul>
+<p>You can store credentials in a local <code>.env</code> file (kept out of version control) with values such as:</p>
+<pre tabindex="0"><code>OPENAI_API_KEY=&#34;...&#34;
+</code></pre><h2 id="quick-start">Quick Start<a hidden class="anchor" aria-hidden="true" href="#quick-start">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#000">git</span> <span style="color:#000">clone</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">repo</span> <span style="color:#000">url</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd </span><span style="color:#000">beauty</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">python</span> <span style="color:#000">-m</span> <span style="color:#000">venv</span> <span style="color:#000;font-weight:bold">.</span><span style="color:#000">venv</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">venv</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">Scripts</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">activate</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">pip</span> <span style="color:#000">install</span> <span style="color:#000">-r</span> <span style="color:#000">requirements</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">python</span> <span style="color:#000">-m</span> <span style="color:#000">streamlit</span> <span style="color:#000">run</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">py</span>
+</span></span></code></pre></div><p>Open the local Streamlit URL provided in the terminal. The default session randomizes the starting player each round; toggle the sidebar to pick a manual starter if you need deterministic ordering.</p>
+<h2 id="project-layout">Project Layout<a hidden class="anchor" aria-hidden="true" href="#project-layout">#</a></h2>
+<ul>
+<li><code>app.py</code> – Streamlit entry point.</li>
+<li><code>views/</code> – UI components (headers, sidebar, displays).</li>
+<li><code>game/</code> – Arena orchestration, players, and referee logic.</li>
+<li><code>prompting/</code> – System and user prompt templates for each persona.</li>
+<li><code>models/</code> – Pydantic models and CSV/Mongo storage adapters.</li>
+<li><code>tools/</code> – Maintenance utilities such as the moves tidy script.</li>
+<li><code>data/</code> – Created automatically to hold move logs (<code>moves.csv</code>).</li>
+</ul>
+<h2 id="acknowledgements">Acknowledgements<a hidden class="anchor" aria-hidden="true" href="#acknowledgements">#</a></h2>
+<p>Inspired by Edward Donner&rsquo;s Outsmart arena. This sandbox is built on the same idea of competitive LLM play.</p>
+<h2 id="license">License<a hidden class="anchor" aria-hidden="true" href="#license">#</a></h2>
+<p>This repository uses a custom license that allows personal/internal use but requires written permission before you redistribute the software. See <code>LICENSE</code> for full terms.</p>
 
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title entry-hint-parent">
-      About
-    </h1>
-    <div class="post-meta"><span title='2025-08-23 18:48:55 +0200 CEST'>August 23, 2025</span>&nbsp;·&nbsp;1 min
+
+
+
+
+  <style>
+    .streamlit-overlay{
+      position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#fff;display:flex;flex-direction:column;
+    }
+    .streamlit-overlay .sc-close{position:absolute;top:0.5rem;right:0.5rem;z-index:10000;background:#111;color:#fff;padding:0.4rem 0.6rem;border-radius:4px;text-decoration:none}
+    .streamlit-overlay iframe{flex:1;border:0;width:100%;height:100%;}
+    body.hugo-streamlit-open{overflow:hidden;height:100vh}
+  </style>
+  <div id="streamlit-overlay" class="streamlit-overlay">
+    <a class="sc-close" href="#" onclick="document.getElementById('streamlit-overlay').style.display='none';document.body.classList.remove('hugo-streamlit-open');return false;">Close</a>
+    <iframe src="https://keynesianbeautycontest.streamlit.app" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+  </div>
+  <script>document.body.classList.add('hugo-streamlit-open');</script>
+
+
+
 
 </div>
-  </header> 
-  <div class="post-content"><p>What did you expect to find here?</p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
     </main>
     
 <footer class="footer">
