@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/page/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=page/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Posts | Jumpbrain</title>
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Jumpbrain">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/page/posts/">
-<link crossorigin="anonymous" href="http://localhost:1313/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/page/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/page/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/page/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/page/safari-pinned-tab.svg">
+<link rel="canonical" href="https://jumpbrain.github.io/page/posts/">
+<link crossorigin="anonymous" href="/page/assets/css/stylesheet.a5781257de4197b8e3d54346acdf1dd55a9ba4cb91dcace192fc1baf228c08b5.css" integrity="sha256-pXgSV95Bl7jj1UNGrN8d1VqbpMuR3KzhkvwbryKMCLU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jumpbrain.github.io/page/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jumpbrain.github.io/page/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jumpbrain.github.io/page/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jumpbrain.github.io/page/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jumpbrain.github.io/page/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/page/posts/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/page/posts/">
+<link rel="alternate" type="application/rss+xml" href="https://jumpbrain.github.io/page/posts/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://jumpbrain.github.io/page/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,60 +40,67 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
 </noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-        ]
-    });
-});
-</script>
-
-</head>
-
-<body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
     } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
+       document.querySelector("html").dataset.theme = 'light';
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
     }
 
-</script>
+</script><meta property="og:url" content="https://jumpbrain.github.io/page/posts/">
+  <meta property="og:site_name" content="Jumpbrain">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="">
 
-<header class="header">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jumpbrain.github.io/page/posts/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
+            <a href="https://jumpbrain.github.io/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -119,27 +126,27 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Jumpbrain">
+                <a href="https://jumpbrain.github.io/page/" title="Jumpbrain">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://jumpbrain.github.io/page/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/beauty-contest/" title="Beauty Contest">
-                    <span>Beauty Contest</span>
+                <a href="https://jumpbrain.github.io/page/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archives">
+                <a href="https://jumpbrain.github.io/page/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://jumpbrain.github.io/page/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -155,26 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Data Scientist at War: Part 2
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Introduction In my last post we talked about the importance of building a wide repetoire when it comes to modelling. In this post we’ll build on the method presented by incorporating uncertanity into our views.
-Caveat: Your first question could sound something like; should we inject uncertanity to our beliefs? And you’re right to question that! After all, we are dealing in assumptions and beliefs here not evidence. My honest answer is that I don’t know. By adding complexity to our beliefs I think we’re at the risk of interpreting emotional padding as evidence. Nontheless, here’s a method for adding uncertanity, should you insist!
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-08-27 12:48:30 +0200 CEST'>August 27, 2025</span>&nbsp;·&nbsp;8 min</footer>
-  <a class="entry-link" aria-label="post link to Data Scientist at War: Part 2" href="http://localhost:1313/page/posts/qualitative_analysis_2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Data Scientist at War: Part 1
     </h2>
   </header>
@@ -184,80 +171,13 @@ In early spring 2022 I made a prediction:
 The Russo-Ukrainian war will not end in Russia’s favour. The invasion will deteriorate into territorial battles raging indifinetly given the same engagement from the west and the east.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to Data Scientist at War: Part 1" href="http://localhost:1313/page/posts/qualitative_analysis/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Data Scientist at War: Part 2
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> It’s not about the tools, it’s how you apply them. In data science, it’s not about the model…
-I call all models ’thought models’ for a reason. It should ideally force you to confront YOUR known facts, YOUR priors and YOUR assumptions about them explicitly. It’s not about the model, it’s about your thinking about the model.
-That’s why I’m drawn to statistical models and algos in general. Beyond trivial notation, beneath the practical aspects, you find very clever best-practices that instantly elevate your reasoning. Consider this…
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;10 min</footer>
-  <a class="entry-link" aria-label="post link to Data Scientist at War: Part 2" href="http://localhost:1313/page/posts/bayes/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/page/img/img.png" alt="">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Second
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>second post?
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-08-23 17:55:36 +0200 CEST'>August 23, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Second" href="http://localhost:1313/page/posts/second/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">This is a title
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>this is a header this is a subheader this is a subheader this is plaintext
-this is latex math $e_i^2$
-this is row sepparated latex math $$ E=mc^2$$
-this is a matrix $$ \begin{bmatrix} a &amp; b \\ c &amp; d \\ e &amp; f \\ \end{bmatrix} $$
-this is a codeblock # mean model y &lt;- mean(x) # for loop for (book in books){ print(book) }
-this is another codeblock # for loop in python looks a little different for book in books: print(book)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-08-23 17:50:00 +0200 CEST'>August 23, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to This is a title" href="http://localhost:1313/page/posts/first/"></a>
+  <footer class="entry-footer"><span title='2025-08-26 17:12:11 +0200 CEST'>August 26, 2025</span>&nbsp;·&nbsp;<span>6 min</span></footer>
+  <a class="entry-link" aria-label="post link to Data Scientist at War: Part 1" href="https://jumpbrain.github.io/page/posts/qualitative_analysis/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/page/">Jumpbrain</a></span> · 
+        <span>&copy; 2025 <a href="https://jumpbrain.github.io/page/">Jumpbrain</a></span> · 
 
     <span>
         Powered by
@@ -272,9 +192,14 @@ this is another codeblock # for loop in python looks a little different for book
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -315,11 +240,12 @@ this is another codeblock # for loop in python looks a little different for book
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

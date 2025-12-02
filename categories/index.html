@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/page/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=page/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Categories | Jumpbrain</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/page/categories/">
-<link crossorigin="anonymous" href="http://localhost:1313/page/assets/css/stylesheet.0b79fb5bab11994e675e84cee1f419f248d0096c0dfc01dcd0d378b39ff40899.css" integrity="sha256-C3n7W6sRmU5nXoTO4fQZ8kjQCWwN/AHc0NN4s5/0CJk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/page/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/page/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/page/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/page/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/page/safari-pinned-tab.svg">
+<link rel="canonical" href="https://jumpbrain.github.io/page/categories/">
+<link crossorigin="anonymous" href="/page/assets/css/stylesheet.a5781257de4197b8e3d54346acdf1dd55a9ba4cb91dcace192fc1baf228c08b5.css" integrity="sha256-pXgSV95Bl7jj1UNGrN8d1VqbpMuR3KzhkvwbryKMCLU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jumpbrain.github.io/page/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jumpbrain.github.io/page/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jumpbrain.github.io/page/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jumpbrain.github.io/page/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jumpbrain.github.io/page/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/page/categories/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/page/categories/">
+<link rel="alternate" type="application/rss+xml" href="https://jumpbrain.github.io/page/categories/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://jumpbrain.github.io/page/categories/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,60 +40,52 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
 </noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-        ]
-    });
-});
-</script>
-
-</head>
-
-<body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
     } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
+       document.querySelector("html").dataset.theme = 'light';
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
     }
 
-</script>
+</script><meta property="og:url" content="https://jumpbrain.github.io/page/categories/">
+  <meta property="og:site_name" content="Jumpbrain">
+  <meta property="og:title" content="Categories">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Categories">
+<meta name="twitter:description" content="">
 
-<header class="header">
+</head>
+<body class="list" id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
+            <a href="https://jumpbrain.github.io/page/" accesskey="h" title="Jumpbrain (Alt + H)">Jumpbrain</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -119,27 +111,27 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Jumpbrain">
+                <a href="https://jumpbrain.github.io/page/" title="Jumpbrain">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
-                    <span>Categories</span>
+                <a href="https://jumpbrain.github.io/page/categories/" title="Categories">
+                    <span class="active">Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/beauty-contest/" title="Beauty Contest">
-                    <span>Beauty Contest</span>
+                <a href="https://jumpbrain.github.io/page/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archives">
+                <a href="https://jumpbrain.github.io/page/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://jumpbrain.github.io/page/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -153,19 +145,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <ul class="terms-tags">
     <li>
-        <a href="http://localhost:1313/page/categories/cybersecurity/">Cybersecurity <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/page/categories/data-science/">Data Science <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/page/categories/trading/">Trading <sup><strong><sup>1</sup></strong></sup> </a>
+        <a href="https://jumpbrain.github.io/page/categories/data-science/">Data Science <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
 </ul>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/page/">Jumpbrain</a></span> · 
+        <span>&copy; 2025 <a href="https://jumpbrain.github.io/page/">Jumpbrain</a></span> · 
 
     <span>
         Powered by
@@ -180,9 +166,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -223,11 +214,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
