@@ -17,8 +17,7 @@
 
 	Close
 	
-
-">
+		Embedding failed or is blocked (redirect/auth or frame restrictions).">
 <meta name="author" content="">
 <link rel="canonical" href="https://jumpbrain.github.io/page/beauty-contest/">
 <link crossorigin="anonymous" href="/page/assets/css/stylesheet.a5781257de4197b8e3d54346acdf1dd55a9ba4cb91dcace192fc1baf228c08b5.css" integrity="sha256-pXgSV95Bl7jj1UNGrN8d1VqbpMuR3KzhkvwbryKMCLU=" rel="preload stylesheet" as="style">
@@ -86,7 +85,7 @@
   <meta property="og:site_name" content="Jumpbrain">
   <meta property="og:title" content="Beauty Contest">
   <meta property="og:description" content="Welcome to the Beauty Contest section. Replace this with your content.
-Close">
+CloseEmbedding failed or is blocked (redirect/auth or frame restrictions).">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -214,10 +213,34 @@ Close">
 	}
 </style>
 <div id="streamlit-overlay" class="streamlit-overlay">
-	<a class="sc-close" href="#" onclick="document.getElementById('streamlit-overlay').style.display='none';document.body.classList.remove('hugo-streamlit-open');return false;">Close</a>
-	<iframe src="https://keynesianbeautycontest.streamlit.app" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+	<a class="sc-close" href="#" onclick="closeStreamlitOverlay();return false;">Close</a>
+	<div class="sc-fallback" style="display:none;padding:1rem;text-align:center;">
+		<p style="margin:.5rem 0">Embedding failed or is blocked (redirect/auth or frame restrictions).</p>
+		<a class="sc-open" href="https://keynesianbeautycontest.streamlit.app" target="_blank" rel="noopener" style="display:inline-block;padding:.5rem 0.75rem;background:#111;color:#fff;border-radius:4px;text-decoration:none">Open in new tab</a>
+	</div>
+	<iframe id="streamlit-iframe" src="https://keynesianbeautycontest.streamlit.app" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
 </div>
-<script>document.body.classList.add('hugo-streamlit-open');</script>
+<script>
+document.body.classList.add('hugo-streamlit-open');
+function closeStreamlitOverlay(){
+	const el=document.getElementById('streamlit-overlay');
+	if(el) el.style.display='none';
+	document.body.classList.remove('hugo-streamlit-open');
+}
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeStreamlitOverlay(); });
+
+(function(){
+	const iframe = document.getElementById('streamlit-iframe');
+	const fallback = document.querySelector('#streamlit-overlay .sc-fallback');
+	let loaded=false;
+	const timeoutMs = 6000;
+	function showFallback(){ if(fallback) fallback.style.display='block'; }
+	if(!iframe){ showFallback(); return; }
+	iframe.addEventListener('load', function(){ loaded=true; if(fallback) fallback.style.display='none'; });
+	window.setTimeout(function(){ if(!loaded) showFallback(); }, timeoutMs);
+})();
+</script>
 
 
 
